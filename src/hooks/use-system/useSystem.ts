@@ -7,9 +7,13 @@ export default function useSystem<T>(system: System<T>): void {
   const world = useWorld();
 
   React.useEffect(() => {
-    world.addSystem(system);
+    if (world) {
+      world.addSystem(system);
+    }
     return () => {
-      world.removeSystem(system);
+      if (world) {
+        world.removeSystem(system);
+      }
     };
   }, [system, world]);
 }

@@ -6,9 +6,13 @@ import useWorld from "../use-world/useWorld";
 export default function useTopic(topic: Topic): void {
   const world = useWorld();
   React.useEffect(() => {
-    world.addTopic(topic);
+    if (world) {
+      world.addTopic(topic);
+    }
     return () => {
-      world.removeTopic(topic);
+      if (world) {
+        world.removeTopic(topic);
+      }
     };
   }, [topic, world]);
 }
