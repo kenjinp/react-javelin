@@ -49,6 +49,7 @@
     "eslint-plugin-react": "^7.26.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-scope": "^6.0.0",
+    "prettier": "^2.4.1",
     "react": "^17.0.2",
     "react-hot-loader": "^4.13.0",
     "ts-loader": "^9.2.6",
