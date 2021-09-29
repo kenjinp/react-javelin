@@ -1,3 +1,4 @@
+export { default as Monitor, MonitorProps } from "./components/monitor/Monitor";
 export { default as useEntity } from "./hooks/use-entity/useEntity";
 export { default as useMonitor } from "./hooks/use-monitor/useMonitor";
 export { default as useSystem } from "./hooks/use-system/useSystem";
