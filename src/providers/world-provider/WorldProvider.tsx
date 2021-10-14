@@ -5,7 +5,7 @@ const defaultWorld: World = createWorld();
 
 export const WorldContext = React.createContext<World>(defaultWorld);
 
-const WorldProvider: React.FC<{ world: World }> = (props) => {
+export const WorldProvider: React.FC<{ world: World }> = (props) => {
   const [world, setWorld] = React.useState<World>(props.world || createWorld());
 
   React.useEffect(() => {
@@ -14,5 +14,3 @@ const WorldProvider: React.FC<{ world: World }> = (props) => {
 
   return <WorldContext.Provider value={world}>{props.children}</WorldContext.Provider>;
 };
-
-export default WorldProvider;
