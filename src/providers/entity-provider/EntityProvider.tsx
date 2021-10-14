@@ -6,8 +6,6 @@ export interface EntityProviderProps {
   entityId: number;
 }
 
-const EntityProvider: React.FC<EntityProviderProps> = ({ entityId, children }) => {
+export const EntityProvider: React.FC<EntityProviderProps> = ({ entityId, children }) => {
   return <EntityContext.Provider value={entityId}>{children}</EntityContext.Provider>;
 };
-
-export default EntityProvider;
