@@ -4,7 +4,7 @@
   "description": "Handy react helpers for @javelin/ecs",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/esm/index.d.ts",
   "files": [
     "dist"
   ],
@@ -12,7 +12,7 @@
     "types": " tsc --emitDeclarationOnly --outDir dist",
     "clean": "rimraf dist",
     "prebuild": "npm run clean",
-    "build": "npm run types && node ./esbuild.js",
+    "build": "tsc -b && tsc -b tsconfig.cjs.json",
     "test": "jest",
     "lint": "eslint \"./src/**/*.{ts,tsx,js,jsx}\"",
     "prettier": "prettier --check \"./src/**/*.{ts,tsx,js,jsx}\"",
@@ -49,7 +49,6 @@
     "@types/react": "^17.0.24",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
-    "esbuild": "^0.13.6",
     "eslint": "^7.32.0",
     "eslint-plugin-react": "^7.26.0",
     "eslint-plugin-react-hooks": "^4.2.0",
