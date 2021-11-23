@@ -48,6 +48,7 @@
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.2",
     "@semantic-release/npm": "^8.0.3",
     "@semantic-release/release-notes-generator": "^10.0.2",
     "@trivago/prettier-plugin-sort-imports": "^2.0.4",
@@ -92,6 +93,16 @@
             "CHANGELOG.md"
           ],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            [
+              "dist"
+            ]
+          ]
         }
       ]
     ]
