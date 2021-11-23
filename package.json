@@ -45,6 +45,11 @@
     "@commitlint/config-conventional": "^13.1.0",
     "@commitlint/prompt-cli": "^13.1.0",
     "@javelin/ecs": "^1.0.0-alpha.12",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^8.0.3",
+    "@semantic-release/release-notes-generator": "^10.0.2",
     "@trivago/prettier-plugin-sort-imports": "^2.0.4",
     "@types/react": "^17.0.24",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
@@ -64,6 +69,31 @@
   "release": {
     "branches": [
       "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/npm",
+        {
+          "assets": [
+            "lib",
+            "package.json"
+          ]
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "package-lock.json",
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
     ]
   }
 }
