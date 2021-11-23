@@ -1,5 +1,6 @@
 import { Query, useMonitor as javelinUseQueryMonitor } from "@javelin/ecs";
-import { difference, without } from "lodash";
+import difference from "lodash/difference";
+import without from "lodash/without";
 import * as React from "react";
 import { useSystem } from "../use-system/useSystem";
 
