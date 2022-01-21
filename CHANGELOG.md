@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/kenjinp/react-javelin/compare/v1.1.5...v1.1.6) (2022-01-21)
+
+
+### Bug Fixes
+
+* optimize monitor component to improve fps, add deps argument to use-system hook ([2c96af9](https://github.com/kenjinp/react-javelin/commit/2c96af9ed535d8bbe7e447353831a9edb53127e2))
+
 ## [1.1.5](https://github.com/kenjinp/react-javelin/compare/v1.1.4...v1.1.5) (2021-11-23)
 
 
