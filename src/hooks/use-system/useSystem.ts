@@ -2,7 +2,7 @@ import { System } from "@javelin/ecs";
 import * as React from "react";
 import { useWorld } from "../use-world/useWorld";
 
-export function useSystem(system: System<unknown>): void {
+export function useSystem(system: System<unknown>, deps: any[] = []): void {
   const world = useWorld();
 
   React.useEffect(() => {
@@ -14,5 +14,5 @@ export function useSystem(system: System<unknown>): void {
         world.removeSystem(system);
       }
     };
-  }, [system, world]);
+  }, [system, world, ...deps]);
 }
