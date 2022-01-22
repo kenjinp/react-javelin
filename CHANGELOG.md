@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/kenjinp/react-javelin/compare/v1.1.6...v1.1.7) (2022-01-22)
+
+
+### Bug Fixes
+
+* move monitor optimization improvements to use-monitor hook ([8b93474](https://github.com/kenjinp/react-javelin/commit/8b93474249ba6babfdda6534dc6c23791488bf29))
+
 ## [1.1.6](https://github.com/kenjinp/react-javelin/compare/v1.1.5...v1.1.6) (2022-01-21)
 
 
