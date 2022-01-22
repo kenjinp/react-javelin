@@ -1,8 +1,7 @@
 import { Query, World } from "@javelin/ecs";
 import { uniqueId } from "lodash";
 import * as React from "react";
-import { DEFAULT_MONITOR_DEBOUNCE_MS } from "src";
-import { useMonitor } from "../../hooks/use-monitor/useMonitor";
+import { DEFAULT_MONITOR_DEBOUNCE_MS, useMonitor } from "../../hooks/use-monitor/useMonitor";
 import { useWorld } from "../../hooks/use-world/useWorld";
 import { EntityContext } from "../../providers/entity-provider/EntityProvider";
 
