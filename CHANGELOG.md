@@ -1,3 +1,10 @@
+## [1.1.8](https://github.com/kenjinp/react-javelin/compare/v1.1.7...v1.1.8) (2022-01-22)
+
+
+### Bug Fixes
+
+* resolve a broken import ([#10](https://github.com/kenjinp/react-javelin/issues/10)) ([4b16dc2](https://github.com/kenjinp/react-javelin/commit/4b16dc2c34386e97f45966fac09b300b17a59f68))
+
 ## [1.1.7](https://github.com/kenjinp/react-javelin/compare/v1.1.6...v1.1.7) (2022-01-22)
 
 
