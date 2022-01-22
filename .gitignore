@@ -138,3 +138,5 @@ dist
 # exports
 
 dist
+
+pnpm-global
