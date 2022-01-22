@@ -64,9 +64,6 @@
     "rimraf": "^3.0.2",
     "typescript": "^4.4.3"
   },
-  "dependencies": {
-    "lodash": "^4.17.21"
-  },
   "release": {
     "branches": [
       "main"
@@ -106,5 +103,8 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
