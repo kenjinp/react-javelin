@@ -1,27 +1,36 @@
-import { Query, useMonitor as javelinUseQueryMonitor } from "@javelin/ecs";
-import difference from "lodash/difference";
-import without from "lodash/without";
+import { Query, useMonitor as useJavelinMonitor, useWorld } from "@javelin/ecs";
+import { debounce, uniqueId } from "lodash";
 import * as React from "react";
 import { useSystem } from "../use-system/useSystem";
 
-export function useMonitor(query: Query): number[] {
-  const [matchingEntityIds, setMatchingEntityIds] = React.useState<number[]>([]);
+export const DEFAULT_MONITOR_DEBOUNCE_MS = 0;
+export function useMonitor(query: Query, name = uniqueId(), debounceMs = DEFAULT_MONITOR_DEBOUNCE_MS): number[] {
+  const [matchingEntityIds] = React.useState(new Set<number>());
+  const valuesRef = React.useRef<number[]>([]);
+  const [updates, setUpdates] = React.useState(uniqueId());
+  const world = useWorld();
+  const update = React.useRef(
+    debounce(() => {
+      valuesRef.current = Array.from(matchingEntityIds.values());
+      setUpdates(uniqueId());
+    }, debounceMs)
+  );
 
   useSystem(() => {
-    javelinUseQueryMonitor(
+    useJavelinMonitor(
       query,
       (entityId: number) => {
-        const newList = [...without(matchingEntityIds, entityId), entityId];
-        const diff = difference(newList, matchingEntityIds);
-        if (diff.length) {
-          setMatchingEntityIds(newList);
-        }
+        matchingEntityIds.add(entityId);
+        update.current();
       },
       (entityId: number) => {
-        setMatchingEntityIds(without(matchingEntityIds, entityId));
+        matchingEntityIds.delete(entityId);
+        update.current();
       }
     );
-  });
+  }, [world, matchingEntityIds, query]);
 
-  return matchingEntityIds;
+  const entitiesIdList = React.useMemo(() => valuesRef.current, [updates]);
+
+  return entitiesIdList;
 }
